@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orders</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <div id="logo">
+        <img src="/img/logo.png" alt="logo" />
+        <p id="logo-name">Kafene</p>
+      </div>
+      <div id="pages">
+        <a href="/order.html">Orders</a>
+        <a href="/product.html">Products</a>
+        <a href="/users.html">Users</a>
+      </div>
+      <button type="submit" id="logout">Logout</button>
+    </div>
+
+    <div class="container">
+      <p id="orderPara" class="mainHeading">Orders</p>
+
+      <div id="orderContainer">
+        <div id="left">
+          <p class="filter">Filters</p>
+          <p id="orderCount" class="count">Count:</p>
+
+          <div id="CheckboxContainer" class="checkBoxContainer">
+            <div>
+              <input type="checkbox" name="New" id="new" />
+              <label for="New">New</label>
+            </div>
+            <div>
+              <input type="checkbox" name="Packed" id="packed" />
+              <label for="Packed">Packed</label>
+            </div>
+            <div>
+              <input type="checkbox" name="InTransit" id="inTransit" />
+              <label for="InTransit">InTransit</label>
+            </div>
+            <div>
+              <input type="checkbox" name="Delivered" id="delivered" />
+              <label for="Delivered">Delivered</label>
+            </div>
+          </div>
+        </div>
+
+        <div id="right">
+          <table id="orderTable" class="table">
+            <thead>
+              <th>ID</th>
+              <th>Customer</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Amount</th>
+              <th>Status</th>
+            </thead>
+            <tbody id="orderBody" class="table"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="/main.js"></script>
+</html>

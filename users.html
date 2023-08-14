@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <div id="logo">
+        <img src="/img/logo.png" alt="logo" />
+        <p id="logo-name">Kafene</p>
+      </div>
+      <div id="pages">
+        <a href="/order.html">Orders</a>
+        <a href="/product.html">Products</a>
+        <a href="/users.html">Users</a>
+      </div>
+      <button type="submit" id="logout">Logout</button>
+    </div>
+
+    <div class="container">
+      <p id="usersPara" class="mainHeading">Users</p>
+
+      <div id="searchContainer">
+        <input type="text" id="searchInput" placeholder="Search by name" />
+        <button id="resetButton">Reset</button>
+      </div>
+      <table id="userTable" class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>User Avatar</th>
+            <th>Full Name</th>
+            <th>DoB</th>
+            <th>Gender</th>
+            <th>Current Location</th>
+          </tr>
+        </thead>
+        <tbody id="userTableBody"></tbody>
+      </table>
+    </div>
+  </body>
+  <script src="/main.js"></script>
+</html>

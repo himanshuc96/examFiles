@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <div id="logo">
+        <img src="/img/logo.png" alt="logo" />
+        <p id="logo-name">Kafene</p>
+      </div>
+      <div id="pages">
+        <a href="/order.html">Orders</a>
+        <a href="/product.html">Products</a>
+        <a href="/users.html">Users</a>
+      </div>
+      <button type="submit" id="logout">Logout</button>
+    </div>
+
+    <div class="container">
+      <p id="productPara" class="mainHeading">Products</p>
+
+      <div id="orderContainer">
+        <div id="left">
+          <p class="filter">Filters</p>
+          <p class="count" id="productCount">Count:</p>
+
+          <div id="CheckboxContainer" class="checkBoxContainer">
+            <div>
+              <input type="checkbox" name="Expired" id="expired" />
+              <label for="Expired">Expired</label>
+            </div>
+            <div>
+              <input type="checkbox" name="LowStock" id="lowStock" />
+              <label for="LowStock">Low Stock</label>
+            </div>
+          </div>
+        </div>
+
+        <div id="right">
+          <table id="productTable" class="table">
+            <thead>
+              <th>ID</th>
+              <th>Product Name</th>
+              <th>Product Brand</th>
+              <th>Expiry Date</th>
+              <th>Unit Price</th>
+              <th>Stock</th>
+            </thead>
+            <tbody id="orderBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="/main.js"></script>
+</html>
