@@ -21,16 +21,15 @@ function initializeOrderPage() {
   const inTransitCheckbox = document.getElementById("inTransit");
   const deliveredCheckbox = document.getElementById("delivered");
 
-  // Add event listeners to checkboxes
+  
   newCheckbox.addEventListener("change", updateOrderTable);
   packedCheckbox.addEventListener("change", updateOrderTable);
   inTransitCheckbox.addEventListener("change", updateOrderTable);
   deliveredCheckbox.addEventListener("change", updateOrderTable);
 
-  // Fetch and populate order data on page load
+
   fetchAndPopulateOrders(apiUrl);
 
-  // Fetch and populate order data
   async function fetchAndPopulateOrders(url) {
     try {
       const response = await fetch(url);
@@ -44,7 +43,6 @@ function initializeOrderPage() {
     }
   }
 
-  // Populate order data into the table
   function populateTable(orders) {
     orderBody.innerHTML = "";
     orders.forEach((order) => {
@@ -60,8 +58,6 @@ function initializeOrderPage() {
       orderBody.appendChild(row);
     });
   }
-
-  // Update the order table based on selected checkboxes
   function updateOrderTable() {
     const selectedStatuses = [];
     if (newCheckbox.checked) {
@@ -76,7 +72,7 @@ function initializeOrderPage() {
     if (deliveredCheckbox.checked) {
       selectedStatuses.push("Delivered");
     }
-    // Fetch and populate orders with selected statuses
+    
     const filteredApiUrl = `${apiUrl}?orderStatus=${selectedStatuses.join(
       ","
     )}`;
@@ -87,7 +83,7 @@ function initializeOrderPage() {
 document.addEventListener("DOMContentLoaded", initializeOrderPage);
 
 //------------------------------------------------------------
-// Function to fetch products from the backend
+
 async function fetchProducts() {
   try {
     const response = await fetch(
@@ -101,7 +97,7 @@ async function fetchProducts() {
   }
 }
 
-// Function to filter products based on expiry and stock
+
 function filterProducts(products, expiredChecked, lowStockChecked) {
   const currentDate = new Date();
 
@@ -121,7 +117,7 @@ function filterProducts(products, expiredChecked, lowStockChecked) {
   });
 }
 
-// Function to update the table with filtered products
+
 function updateTable(products) {
   const tableBody = document.getElementById("orderBody");
   tableBody.innerHTML = "";
@@ -143,7 +139,7 @@ function updateTable(products) {
   productCount.textContent = `Count: ${products.length}`;
 }
 
-// Function to handle checkbox changes and update the table
+
 function handleCheckboxChange() {
   const expiredCheckbox = document.getElementById("expired");
   const lowStockCheckbox = document.getElementById("lowStock");
@@ -152,7 +148,7 @@ function handleCheckboxChange() {
   lowStockCheckbox.addEventListener("change", updateProductTable);
 }
 
-// Function to update the product table based on checkbox filters
+
 async function updateProductTable() {
   const expiredChecked = document.getElementById("expired").checked;
   const lowStockChecked = document.getElementById("lowStock").checked;
@@ -166,15 +162,14 @@ async function updateProductTable() {
   updateTable(filteredProducts);
 }
 
-// Add event listener to page load
+
 window.addEventListener("load", () => {
-  updateProductTable(); // Fetch and update the product table on page load
-  handleCheckboxChange(); // Attach event listeners to checkboxes
+  updateProductTable(); 
+  handleCheckboxChange(); 
 });
 
 //----------------------------
 
-// Function to fetch users from the backend
 async function fetchUsers() {
   try {
     const response = await fetch(
@@ -188,7 +183,6 @@ async function fetchUsers() {
   }
 }
 
-// Function to update the user table
 function updateUserTable(users) {
   const tableBody = document.getElementById("userTableBody");
   tableBody.innerHTML = "";
@@ -207,7 +201,6 @@ function updateUserTable(users) {
   });
 }
 
-// Function to handle search input and update the table
 async function handleSearch() {
   const searchInput = document.getElementById("searchInput");
   const resetButton = document.getElementById("resetButton");
@@ -222,7 +215,7 @@ async function handleSearch() {
       );
       updateUserTable(searchResults);
     } else {
-      updateUserTable([]); // Clear the table
+      updateUserTable([]); 
     }
   });
 
@@ -233,8 +226,8 @@ async function handleSearch() {
   });
 }
 
-// Add event listener to page load
+
 window.addEventListener("load", () => {
-  fetchUsers().then(updateUserTable); // Fetch and update the user table on page load
-  handleSearch(); // Attach event listeners to search input and reset button
+  fetchUsers().then(updateUserTable); 
+  handleSearch(); 
 });
